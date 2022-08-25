@@ -1,0 +1,6 @@
+Nom : string 
+Prenom : string
+Age : int 
+Addresse : string 
+CodePostal : int 
+profession :       malcolm 

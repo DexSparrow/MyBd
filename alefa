@@ -1,0 +1,5 @@
+#! /bin/bash
+
+gcc -o bibil.bin $1
+./bibil.bin
+rm bibil.bin
