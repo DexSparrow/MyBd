@@ -1,8 +1,8 @@
 
 #define help "Voici les differentes commandes :\n-createbd\n-usebd\n-removebd"
 
-int lelen(char*s){int i = 0;for (i;*s; ++i){s++;}return i;}
-int lelenTab(char**ss){int i = 0;for (i;*ss; ++i){ss++;}return i;}
+int length(char*s){int i = 0;for (i;*s; ++i){s++;}return i;}
+int lengthtab(char**ss){int i = 0;for (i;*ss; ++i){ss++;}return i;}
 
 int isExist(char*nameFile){
 	FILE*t = fopen(nameFile,"r");
@@ -16,8 +16,8 @@ int isExist(char*nameFile){
 }
 
 char* adjust(char*s){
-	char*res = (char*)malloc((lelen(s) + 1)*sizeof(char));
-	for (int i = 0; i < lelen(s); ++i){
+	char*res = (char*)malloc((length(s) + 1)*sizeof(char));
+	for (int i = 0; i < length(s); ++i){
 		*(res + i) = *(s + i);
 	}
 	return res;
@@ -43,7 +43,7 @@ char lowey(char c){
 
 int isEqual(char*a,char*b){// Par rapport a b 
 	int res = 1;
-	for (int i = 0; i < lelen(b); ++i){
+	for (int i = 0; i < length(b); ++i){
 		if(lowey(*(a + i)) != lowey(*(b +i))){
 			res = 0;
 			break;
@@ -53,7 +53,7 @@ int isEqual(char*a,char*b){// Par rapport a b
 }
 
 char* fuses(char*s,char a){
-	int ls = lelen(s);
+	int ls = length(s);
 	int i;
 	char*res = (char*)malloc((ls + 2)*sizeof(char));
 	for (i = 0; i < ls; ++i){
@@ -64,8 +64,8 @@ char* fuses(char*s,char a){
 }
 
 char* fusess(char*s,char*a){
-	int ls = lelen(s);
-	int la = lelen(a);
+	int ls = length(s);
+	int la = length(a);
 	int i;
 	char*res = (char*)malloc((ls + la + 1)*sizeof(char));
 	for (i = 0; i < ls; ++i){
@@ -78,19 +78,19 @@ char* fusess(char*s,char*a){
 }
 
 char** fuseSS(char**ss,char*t){
-	int lss = lelenTab(ss);
+	int lss = lengthtab(ss);
 	char**res = (char**)malloc((lss + 2)*sizeof(char*));
 	int i = 0;
 	for (i; i < lss; ++i){
-		char*tempo = (char*)malloc((lelen(*(ss + i)) + 1) *sizeof(char));
-		for (int j = 0; j < lelen(*(ss + i)); ++j){
+		char*tempo = (char*)malloc((length(*(ss + i)) + 1) *sizeof(char));
+		for (int j = 0; j < length(*(ss + i)); ++j){
 			*(tempo + j) = *((*(ss + i)) + j); 
 		}
 		*(res + i) = tempo;
 	}
-	char*tempo = (char*)malloc((lelen(t) + 1)*sizeof(char));
+	char*tempo = (char*)malloc((length(t) + 1)*sizeof(char));
 
-	for (int j = 0; j < lelen(t); ++j){
+	for (int j = 0; j < length(t); ++j){
 		*(tempo + j) = *(t + j);
 	}
 	*(res + i) = tempo;
@@ -108,7 +108,7 @@ char* readliney(FILE*f){
 		res = fuses(res,a);
 		a = fgetc(f);
 	}
-	if (lelen(res) == 0){
+	if (length(res) == 0){
 		return 0;
 	}
 	return res;
