@@ -22,11 +22,11 @@ void usebd(){
 			fclose(file);file = fopen(nFile,"r");
 			char**dataType = extractDataType(file);
 			fclose(file);file = fopen(nFile,"r");
-			int line = lelenTab(dataName);
+			int line = lengthtab(dataName);
 			char* padding = "    ";
 			for (int i = 0; i < line; ++i){
 				printf("┌");
-				for (int f = -2*lelen(padding) ; f < lelen(*(dataName + i)); ++f){
+				for (int f = -2*length(padding) ; f < length(*(dataName + i)); ++f){
 					printf("─");
 				}
 				if(i == line - 1){
@@ -53,7 +53,7 @@ void createbd(){
 	int i = 1;
 	while(!bd){
 		if(!(i%4)){
-			printf("Aza masspr ee !!\n");
+			printf("Aza mahasosotra ee !!\n");
 		}
 		else {
 			printf("Desole votre fichier n'existe pas !!\n");			
@@ -67,7 +67,7 @@ void createbd(){
 
 	FILE*nBd = fopen(Entry("Entrez le nom de votre fichier : "),"w");
 	char**data = extractDataName(bd);
-	for (int i = 0; i < lelenTab(data); ++i){
+	for (int i = 0; i < lengthtab(data); ++i){
 		fprintf(nBd,"%s:\n",*(data + i));		
 	}
 	free(data);
@@ -80,7 +80,7 @@ int main(int argc, char const *argv[]){
 	while(1){
 		commande = Entry("┌──(Ianao㉿trano)-[~]\n└─>");
 		if(isEqual(commande,"exit")){
-			printf("Veloma pory \n");
+			printf("Veloma ! \n");
 			break;
 		}
 		else if(isEqual(commande,"clear")){
@@ -97,7 +97,7 @@ int main(int argc, char const *argv[]){
 			clear;
 		}
 		else {
-			printf("your fucking command is 1%s\n",commande);
+			printf("your command is 1%s\n",commande);
 			printf("Commande inconnue tapez exit pour quittez\n");
 		}
 	}
